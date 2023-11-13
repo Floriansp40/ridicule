@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true}))
 
 /** ROUTAGE */
 
-app.get('/', (req, res) => res.send(`Well done !!!!!!!`))
+app.get('/', (req, res) => res.send(`Well done !!!!!!! - AND ANOTHER`))
 
 app.post('/auth/login', (req, res) => res.json({message: 'test login'}))
 
