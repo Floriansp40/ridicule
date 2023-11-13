@@ -5,7 +5,7 @@ on:
 
 jobs:
     deploy:        
-        runs-on: [self-hosted, green]
+        runs-on: [self-hosted, Green]
 
         steps:
             - name: Checkout

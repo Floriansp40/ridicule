@@ -41,7 +41,7 @@ jobs:
       uses: ./.github/workflows/db.yml
 
 
-    deployGreen:
+    deploy-green:
       if: ${{ contains(github.event.head_commit.message, '#green')}}
       needs: routage
       uses: ./.github/workflows/dg.yml
