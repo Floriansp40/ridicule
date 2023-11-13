@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true}))
 
 app.get('/', (req, res) => res.send(`Well done !!!!!!!`))
 
+app.post('/auth/login', (req, res) => res.json({message: 'test login'}))
+
 app.all('*', (req, res) => res.status(501).send('What the hell are you doing'))
 
 /** START API */

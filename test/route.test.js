@@ -21,6 +21,14 @@ describe('ROUTE TEST', () => {
         it('Rodrigo return 501 status', async () => {
             const response = await request(server).get('/marcel')
             expect(response.status).toBe(501)
+        })        
+    })
+
+    describe('POST TRY', () => {
+        it('Should return 200', async () => {
+            const response = await request(server).post('/auth/login')
+
+            expect(response.status).toBe(200)
         })
     })
 })
