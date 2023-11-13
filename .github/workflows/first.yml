@@ -37,7 +37,7 @@ jobs:
 
     deploy:
         needs: [routage]
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
 
         steps:
             - name: Checkout
@@ -46,5 +46,7 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 node-version: 18.x
-            - name: Start deployement
-              run: echo Deploy
+            - name: Install Dependencies
+              run: npm ci
+            - name: Start API
+              run: npm run start
