@@ -16,6 +16,8 @@ app.get('/', (req, res) => res.send(`Well done !!!!!!!`))
 app.all('*', (req, res) => res.status(501).send('What the hell are you doing'))
 
 /** START API */
-app.listen(process.env.SERVER_PORT, () => {
+const server = app.listen(process.env.SERVER_PORT, () => {
     console.log(`This API is running on port ${process.env.SERVER_PORT}`)
 })
+
+module.exports = server
