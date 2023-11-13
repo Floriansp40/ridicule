@@ -35,18 +35,28 @@ jobs:
             - name: Test du routage
               run: npm run test:route
 
-    deploy:
-        needs: [routage]
-        runs-on: self-hosted
+    deployBlue:
+        if: ${{ contains(github.event.head_commit.message, '#blue')}}
+        needs: routage
+        uses: ./.github/workflows/db.yml
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-            - name: Setup Node
-              uses: actions/setup-node@v3
-              with:
-                node-version: 18.x
-            - name: Install Dependencies
-              run: npm ci
-            - name: Start API
-              run: pm2 restart pm2.config.js
+    deployGreen:
+        if: ${{ contains(github.event.head_commit.message, '#green')}}
+        needs: routage
+        uses: ./.github/workflows/dg.yml
+        
+    # deploy:
+    #     needs: [routage]
+    #     runs-on: self-hosted
+
+    #     steps:
+    #         - name: Checkout
+    #           uses: actions/checkout@v3
+    #         - name: Setup Node
+    #           uses: actions/setup-node@v3
+    #           with:
+    #             node-version: 18.x
+    #         - name: Install Dependencies
+    #           run: npm ci
+    #         - name: Start API
+    #           run: pm2 restart pm2.config.js
