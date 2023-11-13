@@ -38,13 +38,13 @@ jobs:
     deploy-blue:
       if: ${{ contains(github.event.head_commit.message, '#blue')}}
       needs: routage
-      uses: ./.github/workflows/db.js.yml
+      uses: ./.github/workflows/db.yml
 
 
-    # deployGreen:
-    #   if: ${{ contains(github.event.head_commit.message, '#green')}}
-    #   needs: routage
-    #   uses: ./.github/workflows/dg.yml
+    deployGreen:
+      if: ${{ contains(github.event.head_commit.message, '#green')}}
+      needs: routage
+      uses: ./.github/workflows/dg.yml
 
     # deploy:
     #     needs: [routage]
