@@ -35,10 +35,11 @@ jobs:
             - name: Test du routage
               run: npm run test:route
 
-    # deploy-blue:
-    #   if: ${{ contains(github.event.head_commit.message, '#blue')}}
-    #   needs: routage
-    #   uses: ./.github/workflows/db.yml
+    deploy-blue:
+      if: ${{ contains(github.event.head_commit.message, '#blue')}}
+      needs: routage
+      uses: ./.github/workflows/db.js.yml
+
 
     # deployGreen:
     #   if: ${{ contains(github.event.head_commit.message, '#green')}}
